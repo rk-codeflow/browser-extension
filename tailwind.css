@@ -22,3 +22,9 @@ body {
   width: 30px;
   cursor: pointer;
 }
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}

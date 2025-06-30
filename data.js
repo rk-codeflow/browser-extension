@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     logo: "./assets/images/logo-devlens.svg",
     name: "DevLens",
@@ -78,11 +78,3 @@ const data = [
     isActive: true,
   },
 ];
-
-const cardWrapper = document.getElementById("card-wrapper");
-cardWrapper.innerHTML = data.map((item) => {
-  console.log({ item });
-  return `<div class="card bg-white p-3 rounded-xl">
-    <p>${item.name}</p>
-  </div>`;
-});
