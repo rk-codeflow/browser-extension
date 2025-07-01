@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-color: hsl(217, 61%, 90%);
+  --text-color: #000000;
+}
+
 body {
-  background-color: hsl(217, 61%, 90%);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .toggle-wrapper {
@@ -23,8 +29,7 @@ body {
   cursor: pointer;
 }
 
-.card-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.dark {
+  --bg-color: #000;
+  --text-color: #ffffff;
 }
