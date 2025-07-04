@@ -81,6 +81,9 @@ const data = [
 
 const cardWrapper = document.getElementById("card-wrapper");
 const toggleTheme = document.querySelector(".toggle-icon");
+const allBtn = document.querySelector(".all");
+const activeBtn = document.querySelector(".active");
+const inActiveBtn = document.querySelector(".inactive");
 
 cardWrapper.innerHTML = data
   .map((item) => {
@@ -116,15 +119,13 @@ cardWrapper.innerHTML = data
 // theme toggle
 // Check for saved theme in localStorage
 if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
+  document.body.classList.add("dark");
 }
 
 toggleTheme.addEventListener("click", () => {
   document.body.classList.toggle("dark");
 
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
+  // Save preference
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });

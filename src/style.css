@@ -2565,6 +2565,7 @@ video {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .toggle-wrapper {
@@ -2586,7 +2587,6 @@ body {
 
 .dark {
   --bg-color: #000;
-  --text-color: #ffffff;
 }
 
 @media (min-width: 640px) {
