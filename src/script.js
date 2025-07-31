@@ -84,51 +84,11 @@ const toggleTheme = document.querySelector(".toggle-icon");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const inActiveBtn = document.querySelector(".inactive");
+const removeBtn = document.querySelector(".remove");
 
-cardWrapper.innerHTML = data
-  .map((item) => {
-    console.log({
-      logo: item.logo,
-      name: item.name,
-      isActive: item.isActive,
-    });
-    return `<div class="card bg-white p-3 rounded-xl">
-          <div class="flex space-x-3">
-            <img src=${item.logo} alt="logo" />
-            <div class="flex flex-col">
-              <h3 class="text-sm sm:text-base md:text-lg font-semibold">
-                ${item.name}
-              </h3>
-              <p class="text-sm sm:text-base font-light">
-                ${item.description}
-              </p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between">
-            <button class="border px-3 py-1 rounded-3xl">Remove</button>
-            <label
-              class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative peer-checked:bg-red-600"
-              ><input type="checkbox" name="toggle" class="sr-only peer" ${
-                item.isActive ? "checked" : ""
-              } />
-              <span
-                class="absolute left-1 top-1 w-4 h-4 rounded-full bg-[#D1D5DB] peer-checked:translate-x-full peer-checked:bg-red-600 peer-checked:left-2 transition-all duration-300 ease-in-out"
-              ></span
-            ></label>
-          </div>
-        </div> `;
-  })
-  .join("");
-
-allBtn.addEventListener("click", () => {
+const renderCard = (data) => {
   cardWrapper.innerHTML = data
-    .filter((item) => item.isActive)
     .map((item) => {
-      console.log({
-        logo: item.logo,
-        name: item.name,
-        isActive: item.isActive,
-      });
       return `<div class="card bg-white p-3 rounded-xl">
           <div class="flex space-x-3">
             <img src=${item.logo} alt="logo" />
@@ -156,82 +116,21 @@ allBtn.addEventListener("click", () => {
         </div> `;
     })
     .join("");
+};
+
+// Initial render
+renderCard(data);
+
+allBtn.addEventListener("click", () => {
+  renderCard(data);
 });
 
 activeBtn.addEventListener("click", () => {
-  cardWrapper.innerHTML = data
-    .filter((item) => item.isActive)
-    .map((item) => {
-      console.log({
-        logo: item.logo,
-        name: item.name,
-        isActive: item.isActive,
-      });
-      return `<div class="card bg-white p-3 rounded-xl">
-          <div class="flex space-x-3">
-            <img src=${item.logo} alt="logo" />
-            <div class="flex flex-col">
-              <h3 class="text-sm sm:text-base md:text-lg font-semibold">
-                ${item.name}
-              </h3>
-              <p class="text-sm sm:text-base font-light">
-                ${item.description}
-              </p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between">
-            <button class="border px-3 py-1 rounded-3xl">Remove</button>
-            <label
-              class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative peer-checked:bg-red-600"
-              ><input type="checkbox" name="toggle" class="sr-only peer" ${
-                item.isActive ? "checked" : ""
-              } />
-              <span
-                class="absolute left-1 top-1 w-4 h-4 rounded-full bg-[#D1D5DB] peer-checked:translate-x-full peer-checked:bg-red-600 peer-checked:left-2 transition-all duration-300 ease-in-out"
-              ></span
-            ></label>
-          </div>
-        </div> `;
-    })
-    .join("");
+  renderCard(data.filter((item) => item.isActive));
 });
 
 inActiveBtn.addEventListener("click", () => {
-  cardWrapper.innerHTML = data
-    .filter((item) => !item.isActive)
-    .map((item) => {
-      console.log({
-        logo: item.logo,
-        name: item.name,
-        isActive: item.isActive,
-      });
-      return `<div class="card bg-white p-3 rounded-xl">
-          <div class="flex space-x-3">
-            <img src=${item.logo} alt="logo" />
-            <div class="flex flex-col">
-              <h3 class="text-sm sm:text-base md:text-lg font-semibold">
-                ${item.name}
-              </h3>
-              <p class="text-sm sm:text-base font-light">
-                ${item.description}
-              </p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between">
-            <button class="border px-3 py-1 rounded-3xl">Remove</button>
-            <label
-              class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative peer-checked:bg-red-600"
-              ><input type="checkbox" name="toggle" class="sr-only peer" ${
-                item.isActive ? "checked" : ""
-              } />
-              <span
-                class="absolute left-1 top-1 w-4 h-4 rounded-full bg-[#D1D5DB] peer-checked:translate-x-full peer-checked:bg-red-600 peer-checked:left-2 transition-all duration-300 ease-in-out"
-              ></span
-            ></label>
-          </div>
-        </div> `;
-    })
-    .join("");
+  renderCard(data.filter((item) => !item.isActive));
 });
 
 // theme toggle
