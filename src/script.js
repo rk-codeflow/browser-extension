@@ -84,7 +84,7 @@ const toggleTheme = document.querySelector(".toggle-icon");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const inActiveBtn = document.querySelector(".inactive");
-const removeBtn = document.querySelector(".remove");
+const remove = document.querySelectorAll(".remove");
 
 const renderCard = (data) => {
   cardWrapper.innerHTML = data
@@ -102,10 +102,13 @@ const renderCard = (data) => {
             </div>
           </div>
           <div class="mt-5 flex justify-between">
-            <button class="border px-3 py-1 rounded-3xl">Remove</button>
+            <button class="border px-3 py-1 rounded-3xl remove" data-name="${
+              item.name
+            }">Remove</button>
             <label
               class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative peer-checked:bg-red-600"
-              ><input type="checkbox" name="toggle" class="sr-only peer" ${
+              >
+              <input type="checkbox" name="toggle" class="sr-only peer" ${
                 item.isActive ? "checked" : ""
               } />
               <span
@@ -133,16 +136,14 @@ inActiveBtn.addEventListener("click", () => {
   renderCard(data.filter((item) => !item.isActive));
 });
 
-// theme toggle
-// Check for saved theme in localStorage
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
-}
+cardWrapper.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("remove")) return;
+  const name = e.target.dataset.name;
+  const updated = data.filter((item) => item.name !== name);
+  console.log({ updated });
 
-toggleTheme.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+  data.length = 0;
+  data.push(...updated);
 
-  // Save preference
-  const isDark = document.body.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  renderCard(data);
 });
