@@ -10,7 +10,9 @@
     class="bg-light text-black dark:bg-dark dark:text-white transition-colors duration-300"
   >
     <div class="max-w-7xl mx-auto px-9 my-8">
-      <div class="flex items-center justify-between toggle-wrapper">
+      <div
+        class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-neutrall-700"
+      >
         <img
           src="./assets/images/logo.svg"
           alt="logo"
@@ -24,17 +26,23 @@
       </div>
 
       <div class="flex items-center justify-between mt-10">
-        <h2 class="text-sm sm:text-base md:text-xl lg:text-3xl font-semibold">
+        <h2 class="text-sm sm:text-base md:text-xl lg:text-3xl font-semibold d">
           Extensions List
         </h2>
         <div class="flex space-x-2">
-          <button class="bg-white px-3 py-1 rounded-3xl border-solid all">
+          <button
+            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border all"
+          >
             All
           </button>
-          <button class="border bg-white px-3 py-1 rounded-3xl active">
+          <button
+            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border active"
+          >
             Active
           </button>
-          <button class="border bg-white px-3 py-1 rounded-3xl inactive">
+          <button
+            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border inactive"
+          >
             Inactive
           </button>
         </div>
