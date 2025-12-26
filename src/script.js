@@ -108,9 +108,9 @@ const renderCard = (data) => {
             <label
               class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative peer-checked:bg-red-600"
               >
-              <input type="checkbox" name="toggle" class="sr-only peer" ${
-                item.isActive ? "checked" : ""
-              } />
+              <input type="checkbox" name="toggle" class="sr-only peer toggle" data-toggle="${
+                item.name
+              }" ${item.isActive ? "checked" : ""} />
               <span
                 class="absolute left-1 top-1 w-4 h-4 rounded-full bg-[#D1D5DB] peer-checked:translate-x-full peer-checked:bg-red-600 peer-checked:left-2 transition-all duration-300 ease-in-out"
               ></span
