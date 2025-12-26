@@ -86,6 +86,7 @@ const activeBtn = document.querySelector(".active");
 const inActiveBtn = document.querySelector(".inactive");
 const remove = document.querySelectorAll(".remove");
 
+let tab;
 const renderCard = (data) => {
   cardWrapper.innerHTML = data
     .map((item) => {
@@ -125,14 +126,17 @@ const renderCard = (data) => {
 renderCard(data);
 
 allBtn.addEventListener("click", () => {
+  tab = "all";
   renderCard(data);
 });
 
 activeBtn.addEventListener("click", () => {
+  tab = "active";
   renderCard(data.filter((item) => item.isActive));
 });
 
 inActiveBtn.addEventListener("click", () => {
+  tab = "inactive";
   renderCard(data.filter((item) => !item.isActive));
 });
 
@@ -145,5 +149,36 @@ cardWrapper.addEventListener("click", (e) => {
   data.length = 0;
   data.push(...updated);
 
-  renderCard(data);
+  preserveTab();
 });
+
+cardWrapper.addEventListener("change", (e) => {
+  if (!e.target.classList.contains("toggle")) return;
+
+  const item = e.target.dataset.toggle;
+  let checked = e.target.checked;
+  const updated = data.find((i) => i.name === item);
+
+  updated.isActive = checked;
+
+  preserveTab();
+});
+
+const preserveTab = () => {
+  switch (tab) {
+    case "all":
+      renderCard(data);
+      break;
+
+    case "active":
+      renderCard(data.filter((item) => item.isActive));
+      break;
+
+    case "inactive":
+      renderCard(data.filter((item) => !item.isActive));
+      break;
+
+    default:
+      renderCard(data);
+  }
+};
