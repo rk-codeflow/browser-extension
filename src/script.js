@@ -1,17 +1,18 @@
 import data from "../data.json" with { type: "json" };
 
 const cardWrapper = document.getElementById("card-wrapper");
-const toggleTheme = document.querySelector(".toggle-icon");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const inActiveBtn = document.querySelector(".inactive");
-const remove = document.querySelectorAll(".remove");
+const toggleBtn = document.querySelector(".toggle-icon");
+const html = document.documentElement;
 
 let tab;
+
 const renderCard = (data) => {
   cardWrapper.innerHTML = data
     .map((item) => {
-      return `<div class="card bg-white p-3 rounded-xl">
+      return `<div class="card bg-white dark:bg-slate-950 dark:text-white p-3 rounded-xl">
           <div class="flex space-x-3">
             <img src=${item.logo} alt="logo" />
             <div class="flex flex-col">
@@ -85,6 +86,7 @@ cardWrapper.addEventListener("change", (e) => {
   preserveTab();
 });
 
+
 const preserveTab = () => {
   switch (tab) {
     case "all":
@@ -103,3 +105,17 @@ const preserveTab = () => {
       renderCard(data);
   }
 };
+
+
+if (localStorage.theme === 'dark') {
+  html.classList.add('dark')
+}
+
+toggleBtn.addEventListener('click', () => {
+  html.classList.toggle("dark")
+  if (html.classList.contains('dark')) {
+    localStorage.setItem('theme', 'dark')
+  } else {
+    localStorage.setItem('theme', 'light')
+  }
+})

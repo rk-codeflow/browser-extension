@@ -1883,6 +1883,14 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-light {
+  background-image: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+}
+
+.bg-dark {
+  background-image: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2170,6 +2178,11 @@ video {
 
 .text-\[\#336699\]\/\[\.35\] {
   color: rgb(51 102 153 / .35);
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .text-blue-500 {
@@ -2492,6 +2505,12 @@ video {
   transition-duration: 150ms;
 }
 
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -2700,10 +2719,22 @@ body {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  @media (min-width: 1024px) {
-    .dark\:lg\:hover\:\[paint-order\:markers\]:hover {
-      paint-order: markers;
-    }
+.dark\:bg-slate-950:where(.dark, .dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 6 23 / var(--tw-bg-opacity, 1));
+}
+
+.dark\:bg-dark:where(.dark, .dark *) {
+  background-image: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+.dark\:text-white:where(.dark, .dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 1024px) {
+  .dark\:lg\:hover\:\[paint-order\:markers\]:hover:where(.dark, .dark *) {
+    paint-order: markers;
   }
 }
