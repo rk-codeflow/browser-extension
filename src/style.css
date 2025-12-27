@@ -2305,6 +2305,14 @@ video {
   -moz-osx-font-smoothing: auto;
 }
 
+.accent-pink-700 {
+  accent-color: #be185d;
+}
+
+.accent-pink-800 {
+  accent-color: #9d174d;
+}
+
 .bg-blend-normal {
   background-blend-mode: normal;
 }
@@ -2796,6 +2804,21 @@ body {
 .peer:checked ~ .peer-checked\:bg-neutrall-300 {
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 78% / var(--tw-bg-opacity, 1));
+}
+
+.peer:checked ~ .peer-checked\:bg-redd-500 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(3 71% 56% / var(--tw-bg-opacity, 1));
+}
+
+.peer:checked ~ .peer-checked\:hover\:bg-red-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
+}
+
+.has-\[\:checked\]\:bg-red-600:has(:checked) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
 }
 
 @media (min-width: 640px) {
