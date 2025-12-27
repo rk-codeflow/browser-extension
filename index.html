@@ -7,22 +7,37 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body
-    class="bg-light text-black dark:bg-dark dark:text-white transition-colors duration-300"
+    class="bg-light text-black dark:bg-dark dark:text-white transition-colors duration-300 h-screen"
   >
     <div class="max-w-7xl mx-auto px-9 my-8">
       <div
-        class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-neutrall-700 border"
+        class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-neutrall-800 border dark:border-hidden"
       >
         <img
           src="./assets/images/logo.svg"
           alt="logo"
-          class="h-8 cursor-pointer"
+          class="h-8 cursor-pointer dark:hidden"
+        />
+        <img
+          src="./assets/images/logo-dark.svg"
+          alt="logo"
+          class="h-8 cursor-pointer hidden dark:inline"
         />
         <div class="flex items-center">
           <div
-            class="flex items-center justify-center h-[30px] w-[30px] cursor-pointer rounded-lg p-[6px] bg-neutrall-100 hover:bg-neutrall-300 toggle-icon"
+            class="flex items-center justify-center h-[30px] w-[30px] cursor-pointer rounded-lg p-[6px] bg-neutrall-100 dark:bg-neutrall-600 hover:bg-neutrall-300 toggle-icon"
           >
-            <img src="./assets/images/icon-moon.svg" alt="moon" />
+            <img
+              src="./assets/images/icon-moon.svg"
+              class="inline dark:hidden"
+              alt="moon"
+            />
+
+            <img
+              src="./assets/images/icon-sun.svg"
+              class="hidden dark:inline"
+              alt="sun"
+            />
           </div>
         </div>
       </div>
@@ -33,17 +48,17 @@
         </h2>
         <div class="flex space-x-2">
           <button
-            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border hover:bg-redd-400 hover:text-neutrall-0 all"
+            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border dark:border-hidden hover:bg-redd-400 hover:text-neutrall-0 all"
           >
             All
           </button>
           <button
-            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border hover:bg-redd-400 hover:text-neutrall-0 active"
+            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border dark:border-hidden hover:bg-redd-400 hover:text-neutrall-0 active"
           >
             Active
           </button>
           <button
-            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border hover:bg-redd-400 hover:text-neutrall-0 inactive"
+            class="bg-white dark:bg-neutrall-700 dark:text-neutrall-0 px-3 py-1 rounded-3xl border dark:border-hidden hover:bg-redd-400 hover:text-neutrall-0 inactive"
           >
             Inactive
           </button>

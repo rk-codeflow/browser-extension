@@ -12,7 +12,7 @@ let tab;
 const renderCard = (data) => {
   cardWrapper.innerHTML = data
     .map((item) => {
-      return `<div class="border bg-white dark:bg-neutral-900 dark:text-white p-3 rounded-xl">
+      return `<div class="border dark:border-hidden bg-white dark:bg-neutral-900 dark:text-white p-3 rounded-xl">
           <div class="flex space-x-3">
             <img src=${item.logo} alt="logo" />
             <div class="flex flex-col">
