@@ -30,13 +30,13 @@ const renderCard = (data) => {
             }">Remove</button>
 
             <label
-              class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative bg-neutrall-300/50 peer-checked:bg-red-600 hover:bg-redd-400"
+              class="cursor-pointer w-10 h-5 border rounded-3xl flex items-center justify-center relative bg-neutrall-300/50 peer-checked:bg-red-600 hover:bg-redd-400"
               >
               <input type="checkbox" name="toggle" class="sr-only peer toggle" data-toggle="${
                 item.name
               }" ${item.isActive ? "checked" : ""} />
               <span
-                class="absolute left-[2px] w-4 h-4 rounded-full bg-neutrall-0 peer-checked:translate-x-full peer-checked:bg-neutrall-0 peer-checked:left-2 transition-all duration-300 ease-in-out"
+                class="absolute left-[1px] w-4 h-4 rounded-full bg-neutrall-0 peer-checked:translate-x-full peer-checked:bg-neutrall-0 peer-checked:left-1 transition-all duration-300 ease-in-out"
               ></span
             ></label>
           </div>
