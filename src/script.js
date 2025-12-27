@@ -12,7 +12,7 @@ let tab;
 const renderCard = (data) => {
   cardWrapper.innerHTML = data
     .map((item) => {
-      return `<div class="card bg-white dark:bg-neutral-900 dark:text-white p-3 rounded-xl">
+      return `<div class="border bg-white dark:bg-neutral-900 dark:text-white p-3 rounded-xl">
           <div class="flex space-x-3">
             <img src=${item.logo} alt="logo" />
             <div class="flex flex-col">
@@ -25,17 +25,18 @@ const renderCard = (data) => {
             </div>
           </div>
           <div class="mt-5 flex justify-between">
-            <button class="border px-3 py-1 rounded-3xl remove" data-name="${
+            <button class="border px-3 py-1 rounded-3xl remove hover:bg-redd-500 hover:text-neutrall-0" data-name="${
               item.name
             }">Remove</button>
+
             <label
-              class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative peer-checked:bg-red-600"
+              class="cursor-pointer w-12 h-6 border rounded-3xl flex items-center justify-center relative bg-neutrall-300/50 peer-checked:bg-red-600 hover:bg-redd-400"
               >
               <input type="checkbox" name="toggle" class="sr-only peer toggle" data-toggle="${
                 item.name
               }" ${item.isActive ? "checked" : ""} />
               <span
-                class="absolute left-1 top-1 w-4 h-4 rounded-full bg-[#D1D5DB] peer-checked:translate-x-full peer-checked:bg-red-600 peer-checked:left-2 transition-all duration-300 ease-in-out"
+                class="absolute left-[2px] w-4 h-4 rounded-full bg-neutrall-0 peer-checked:translate-x-full peer-checked:bg-neutrall-0 peer-checked:left-2 transition-all duration-300 ease-in-out"
               ></span
             ></label>
           </div>
