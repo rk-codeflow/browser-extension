@@ -12,7 +12,7 @@ let tab;
 const renderCard = (data) => {
   cardWrapper.innerHTML = data
     .map((item) => {
-      return `<div class="border dark:border-hidden bg-white dark:bg-neutral-900 dark:text-white p-3 rounded-xl">
+      return `<div class="border dark:border-neutrall-300 bg-white dark:bg-neutrall-800 dark:text-white p-3 rounded-xl">
           <div class="flex space-x-3">
             <img src=${item.logo} alt="logo" />
             <div class="flex flex-col">
@@ -45,6 +45,8 @@ const renderCard = (data) => {
     .join("");
 };
 
+
+
 // Initial render
 renderCard(data);
 
@@ -67,7 +69,6 @@ cardWrapper.addEventListener("click", (e) => {
   if (!e.target.classList.contains("remove")) return;
   const name = e.target.dataset.name;
   const updated = data.filter((item) => item.name !== name);
-  console.log({ updated });
 
   data.length = 0;
   data.push(...updated);
